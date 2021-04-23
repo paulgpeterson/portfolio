@@ -1,11 +1,11 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
+import React from 'react';
+import { render, screen } from '@testing-library/react';
 
-import { Nav } from "./Nav";
+import { Nav } from './Nav';
 
-describe("Nav", () => {
-  it("renders a navigation element", () => {
+describe('Nav', () => {
+  it('renders a navigation element', () => {
     render(<Nav />);
-    expect(screen.getByRole("navigation")).toBeInTheDocument();
+    expect(screen.getByRole('navigation')).toBeInTheDocument();
   });
 });

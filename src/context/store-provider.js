@@ -1,11 +1,12 @@
-import React, { useContext, useReducer, createContext } from "react";
+import React, { useContext, useReducer, createContext } from 'react';
+import PropTypes from 'prop-types';
 
-import { HOME } from "../constants/navigation";
-import { NAVIGATE, TOGGLE_MENU } from "../constants/action-names";
+import { HOME } from '../constants/navigation';
+import { NAVIGATE, TOGGLE_MENU } from '../constants/action-names';
 
 const initialState = {
   location: HOME,
-  showMenu: false,
+  showMenu: false
 };
 
 function reducer(state, action) {
@@ -30,5 +31,9 @@ export function StoreProvider({ children }) {
     <StoreContext.Provider value={value}>{children}</StoreContext.Provider>
   );
 }
+
+StoreProvider.propTypes = {
+  children: PropTypes.node
+};
 
 export const useStore = () => useContext(StoreContext);

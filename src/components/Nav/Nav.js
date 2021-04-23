@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { css } from '@emotion/css';
 
-import { useStore } from "../../context/store-provider";
-import { HOME, PROJECTS, BLOG, CONTACT } from "../../constants/navigation";
-import { navigate } from "../../context/actions";
+import { useStore } from '../../context/store-provider';
+import { HOME, PROJECTS, BLOG, CONTACT } from '../../constants/navigation';
+import { navigate } from '../../context/actions';
 
 export const Nav = () => {
   const [isVisible, setIsVisible] = useState(false);
   const { dispatch } = useStore();
+
+  const toggleMenu = () => {
+    setIsVisible((isVisible) => !isVisible);
+  };
+
+  const menuButtonText = isVisible ? 'X' : 'Menu';
+
   return (
     <>
+      <button onClick={toggleMenu}>{menuButtonText}</button>
       {isVisible && (
         <nav>
-          <ul>
+          <ul className={listStyles}>
             <li>
               <button onClick={() => dispatch(navigate(HOME))}>Home</button>
             </li>
@@ -34,3 +43,9 @@ export const Nav = () => {
     </>
   );
 };
+
+const listStyles = css`
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+`;

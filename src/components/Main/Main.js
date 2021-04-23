@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { useStore } from "../../context/store-provider";
+import { useStore } from '../../context/store-provider';
 
-import { pageMap } from "../../utils/pageMap";
+import { pageMap } from '../../utils/pageMap';
 
 export const Main = () => {
   const { state } = useStore();

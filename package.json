@@ -19,7 +19,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky install",
+    "format": "prettier --write \"src/**/*.{js,jsx,md}\"",
+    "format-watch": "onchange src/**/*.{js,jsx,md}\" -- prettier --write {{changed}}"
   },
   "eslintConfig": {
     "extends": [
@@ -45,10 +48,15 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "gh-pages": "^3.1.0",
+    "husky": ">=6",
+    "lint-staged": ">=10",
     "prettier": "^2.2.1"
   },
   "prettier": {
     "singleQuote": true,
     "trailingComma": "none"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
   }
 }
