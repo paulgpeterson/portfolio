@@ -1,9 +1,9 @@
 import React from "react";
 
-export const Projects = () => {
+export const Home = () => {
   return (
     <section>
-      <h1>Projects</h1>
+      <h1>Welcome to my Portfolio</h1>
     </section>
   );
 };

@@ -1,5 +1,17 @@
 import React from "react";
 
+import { useStore } from "../../context/store-provider";
+
+import { pageMap } from "../../utils/pageMap";
+
 export const Main = () => {
-  return <main>Hello World!</main>;
+  const { state } = useStore();
+
+  const CurrentPage = pageMap[state.location];
+
+  return (
+    <main>
+      <CurrentPage />
+    </main>
+  );
 };
